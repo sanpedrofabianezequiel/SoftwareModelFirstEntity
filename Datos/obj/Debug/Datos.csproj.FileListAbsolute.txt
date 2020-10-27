@@ -1,0 +1,10 @@
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\bin\Debug\Datos.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\bin\Debug\Datos.pdb
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\bin\Debug\Entidades.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\bin\Debug\Entidades.pdb
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\bin\Debug\Entidades.dll.config
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\obj\Debug\Datos.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\Datos\obj\Debug\Datos.pdb
