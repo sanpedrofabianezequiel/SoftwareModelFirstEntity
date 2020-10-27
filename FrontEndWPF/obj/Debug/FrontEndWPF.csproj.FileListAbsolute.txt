@@ -19,3 +19,5 @@ C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.csp
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.csproj.CopyComplete
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.exe
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.pdb
+C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\EntityFramework.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\EntityFramework.xml

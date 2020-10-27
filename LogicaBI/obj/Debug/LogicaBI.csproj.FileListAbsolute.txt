@@ -10,3 +10,5 @@ C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.csproj.Co
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.csproj.CopyComplete
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.dll
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.pdb
+C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\bin\Debug\EntityFramework.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\bin\Debug\EntityFramework.xml
