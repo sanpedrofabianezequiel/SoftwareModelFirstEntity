@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FrontEndWPF"
+        xmlns:local="clr-namespace:WpfBiblioteca"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="406.652" Width="804.379">
+    <Grid Loaded="Grid_Loaded" Margin="71,128,-51,-87" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="681*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid
+            Name="dgGeneros"
+            AutoGenerateColumns="True"
+            Margin="17,31,121,167" SelectionChanged="dgGeneros_SelectionChanged" Grid.ColumnSpan="4"/>
+
+
+        <Button x:Name="btnNuevo" Content="NUEVO" HorizontalAlignment="Left" Margin="17,261,0,0" VerticalAlignment="Top" Width="133" Click="btnNuevo_Click" Grid.ColumnSpan="4"/>
+        <Button x:Name="btnModificar" Content="MODIFICAR" HorizontalAlignment="Left" Margin="51,261,0,0" VerticalAlignment="Top" Width="123" Grid.Column="3" Click="btnModificar_Click"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" Margin="179,261,0,0" VerticalAlignment="Top" Width="135" Grid.Column="3"/>
+        <Button x:Name="btnCerrar" Content="CERRAR" HorizontalAlignment="Left" Margin="409,261,0,0" VerticalAlignment="Top" Width="153" Click="btnBorrar_Click" Grid.Column="3"/>
+        <TextBox x:Name="txtID"  Text="{Binding Path=Id}" HorizontalAlignment="Left" Height="23" Margin="24,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="38" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtNombre"   Text="{Binding Path=Descripcion}" HorizontalAlignment="Left" Height="23" Margin="17.452,215,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="360" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label x:Name="lblGeneros" Content="GENEROS" HorizontalAlignment="Left" Margin="17,5,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="138"/>
+
     </Grid>
 </Window>

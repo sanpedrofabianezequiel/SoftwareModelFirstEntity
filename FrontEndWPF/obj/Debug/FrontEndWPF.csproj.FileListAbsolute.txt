@@ -21,3 +21,6 @@ C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.exe
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\obj\Debug\FrontEndWPF.pdb
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\EntityFramework.dll
 C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\EntityFramework.xml
+C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\Datos.dll
+C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\Datos.pdb
+C:\Users\sanpe\source\repos\SoftwareMFirst\FrontEndWPF\bin\Debug\Datos.dll.config

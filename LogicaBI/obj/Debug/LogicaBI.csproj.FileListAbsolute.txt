@@ -12,3 +12,4 @@ C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.dll
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\obj\Debug\LogicaBI.pdb
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\bin\Debug\EntityFramework.dll
 C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\bin\Debug\EntityFramework.xml
+C:\Users\sanpe\source\repos\SoftwareMFirst\LogicaBI\bin\Debug\Datos.dll.config
