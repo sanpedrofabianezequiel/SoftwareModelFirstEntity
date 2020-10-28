@@ -23,18 +23,18 @@ namespace LogicaBI
 
         }
 
-        public static List<Entidades.Genero> TraerTodos()
+        public  List<Entidades.Genero> TraerTodos()
         {
 
             return Datos.Genero.TraerTodos();
         }
 
-        public static void Modificar(Entidades.Genero genero)
+        public  void Modificar(Entidades.Genero genero)
         {
             Datos.Genero.Modificar(genero);
         }
 
-        public static void Borrar(Entidades.Genero genero)
+        public  void Borrar(Entidades.Genero genero)
         {
 
             Datos.Genero.Borrar(genero);

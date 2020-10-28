@@ -20,9 +20,22 @@ namespace FrontEndWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        LogicaBI.Genero bi = new LogicaBI.Genero();
         public MainWindow()
-        {
+        { 
             InitializeComponent();
+        }
+
+        //Creamos el LOAD
+
+        public void CargaGrilla()
+        {
+            List<Entidades.Genero> listaGeneros = bi.TraerTodos();
+            dgGeneros.ItemsSource = listaGeneros;
+            dgGeneros.Columns[0].Width = 50;//id
+            dgGeneros.Columns[1].Width = 150;//Nombre
+            dgGeneros.Columns[2].Visibility = Visibility.Hidden;
+        
         }
     }
 }
