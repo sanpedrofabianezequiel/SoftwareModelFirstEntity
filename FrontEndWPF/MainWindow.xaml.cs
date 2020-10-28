@@ -68,13 +68,33 @@ namespace FrontEndWPF
         //Selection Changed, el que cambia el Gird
         private void dgGeneros_SelectionChanged(object sender,SelectionChangedEventArgs e) 
         {
-            DataGrid dataGrid = sender as DataGrid;//Castiamos el objeto recibido
-            DataGridRow row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
-            DataGridCell RowColumn = dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
-            txtID.Text = ((TextBlock)RowColumn.Content).Text;
-            //Para la siguiente columna
-            DataGridCell RowColumn1 = dataGrid.Columns[1].GetCellContent(row).Parent as DataGridCell;
-            txtNombre.Text = ((TextBlock)RowColumn1.Content).Text;
+            try
+            {
+                DataGrid dataGrid = sender as DataGrid;//Castiamos el objeto recibido
+                DataGridRow row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
+                DataGridCell RowColumn = dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
+                txtID.Text = ((TextBlock)RowColumn.Content).Text;
+                //Para la siguiente columna
+                DataGridCell RowColumn1 = dataGrid.Columns[1].GetCellContent(row).Parent as DataGridCell;
+                txtNombre.Text = ((TextBlock)RowColumn1.Content).Text;
+            }
+            catch (Exception)
+            {
+
+               
+            }
+
+        }
+        private void btnBorrar_Click(object sender,RoutedEventArgs e)
+        {
+            Entidades.Genero Borrar = new Entidades.Genero();
+            Borrar.Id = Convert.ToInt32(this.txtID.Text);
+           
+            bi.Borrar(Borrar);
+            MessageBox.Show("Genero Borrado");
+            dgGeneros.DataContext = null;//Lo nuliamos y lo volvemos a llamar
+            CargaGrilla();
+
         }
         private void BtnCerrar_Click(object sender,RoutedEventArgs e) 
         {

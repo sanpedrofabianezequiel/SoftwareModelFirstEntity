@@ -12,6 +12,8 @@ namespace Entidades
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Model1Container : DbContext
     {
@@ -30,5 +32,14 @@ namespace Entidades
         public virtual DbSet<Pais> Paises { get; set; }
         public virtual DbSet<Autor> Autores { get; set; }
         public virtual DbSet<Libro> Libros { get; set; }
+    
+        public virtual int ProcAltaGenero(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProcAltaGenero", nombreParameter);
+        }
     }
 }

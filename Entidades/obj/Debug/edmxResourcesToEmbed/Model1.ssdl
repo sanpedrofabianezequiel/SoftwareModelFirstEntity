@@ -1,54 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Generos" EntityType="Model1.Store.Generos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Editoriales" EntityType="Model1.Store.Editoriales" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Paises" EntityType="Model1.Store.Paises" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Autores" EntityType="Model1.Store.Autores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Libros" EntityType="Model1.Store.Libros" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LibroAutor" EntityType="Model1.Store.LibroAutor" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="GeneroLibro" Association="Model1.Store.GeneroLibro">
-      <End Role="Genero" EntitySet="Generos" />
-      <End Role="Libro" EntitySet="Libros" />
-    </AssociationSet>
-    <AssociationSet Name="LibroEditorial" Association="Model1.Store.LibroEditorial">
-      <End Role="Libro" EntitySet="Libros" />
-      <End Role="Editorial" EntitySet="Editoriales" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LibroAutor_Libro" Association="Model1.Store.FK_LibroAutor_Libro">
-      <End Role="Libro" EntitySet="Libros" />
-      <End Role="LibroAutor" EntitySet="LibroAutor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LibroAutor_Autor" Association="Model1.Store.FK_LibroAutor_Autor">
-      <End Role="Autor" EntitySet="Autores" />
-      <End Role="LibroAutor" EntitySet="LibroAutor" />
-    </AssociationSet>
-    <AssociationSet Name="PaisAutor" Association="Model1.Store.PaisAutor">
-      <End Role="Pais" EntitySet="Paises" />
-      <End Role="Autor" EntitySet="Autores" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Generos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Editoriales">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Paises">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
+<Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Autores">
     <Key>
       <PropertyRef Name="Id" />
@@ -58,6 +9,28 @@
     <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Editoriales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Generos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LibroAutor">
+    <Key>
+      <PropertyRef Name="Libros_Id" />
+      <PropertyRef Name="Autores_Id" />
+    </Key>
+    <Property Name="Libros_Id" Type="int" Nullable="false" />
+    <Property Name="Autores_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Libros">
     <Key>
@@ -69,67 +42,30 @@
     <Property Name="GeneroId" Type="int" Nullable="false" />
     <Property Name="EditorialId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="LibroAutor">
+  <EntityType Name="Paises">
     <Key>
-      <PropertyRef Name="Libros_Id" />
-      <PropertyRef Name="Autores_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Libros_Id" Type="int" Nullable="false" />
-    <Property Name="Autores_Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="GeneroLibro">
-    <End Role="Genero" Type="Model1.Store.Generos" Multiplicity="1" />
-    <End Role="Libro" Type="Model1.Store.Libros" Multiplicity="*" />
+  <Association Name="FK_GeneroLibro">
+    <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+    <End Role="Libros" Type="Self.Libros" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Genero">
+      <Principal Role="Generos">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Libro">
+      <Dependent Role="Libros">
         <PropertyRef Name="GeneroId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="LibroEditorial">
-    <End Role="Libro" Type="Model1.Store.Libros" Multiplicity="*" />
-    <End Role="Editorial" Type="Model1.Store.Editoriales" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Editorial">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Libro">
-        <PropertyRef Name="EditorialId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PaisAutor">
-    <End Role="Pais" Type="Model1.Store.Paises" Multiplicity="1" />
-    <End Role="Autor" Type="Model1.Store.Autores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pais">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Autor">
-        <PropertyRef Name="PaisId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LibroAutor_Libro">
-    <End Role="Libro" Type="Model1.Store.Libros" Multiplicity="1" />
-    <End Role="LibroAutor" Type="Model1.Store.LibroAutor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Libro">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LibroAutor">
-        <PropertyRef Name="Libros_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_LibroAutor_Autor">
-    <End Role="LibroAutor" Type="Model1.Store.LibroAutor" Multiplicity="*" />
-    <End Role="Autor" Type="Model1.Store.Autores" Multiplicity="1" />
+    <End Role="Autores" Type="Self.Autores" Multiplicity="1" />
+    <End Role="LibroAutor" Type="Self.LibroAutor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Autor">
+      <Principal Role="Autores">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="LibroAutor">
@@ -137,4 +73,71 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LibroAutor_Libro">
+    <End Role="Libros" Type="Self.Libros" Multiplicity="1" />
+    <End Role="LibroAutor" Type="Self.LibroAutor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libros">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAutor">
+        <PropertyRef Name="Libros_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LibroEditorial">
+    <End Role="Editoriales" Type="Self.Editoriales" Multiplicity="1" />
+    <End Role="Libros" Type="Self.Libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editoriales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Libros">
+        <PropertyRef Name="EditorialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaisAutor">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+    <End Role="Autores" Type="Self.Autores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Autores">
+        <PropertyRef Name="PaisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ProcAltaGenero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Autores" EntityType="Self.Autores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Editoriales" EntityType="Self.Editoriales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibroAutor" EntityType="Self.LibroAutor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Libros" EntityType="Self.Libros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_GeneroLibro" Association="Self.FK_GeneroLibro">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Libros" EntitySet="Libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroAutor_Autor" Association="Self.FK_LibroAutor_Autor">
+      <End Role="Autores" EntitySet="Autores" />
+      <End Role="LibroAutor" EntitySet="LibroAutor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroAutor_Libro" Association="Self.FK_LibroAutor_Libro">
+      <End Role="Libros" EntitySet="Libros" />
+      <End Role="LibroAutor" EntitySet="LibroAutor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LibroEditorial" Association="Self.FK_LibroEditorial">
+      <End Role="Editoriales" EntitySet="Editoriales" />
+      <End Role="Libros" EntitySet="Libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaisAutor" Association="Self.FK_PaisAutor">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Autores" EntitySet="Autores" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

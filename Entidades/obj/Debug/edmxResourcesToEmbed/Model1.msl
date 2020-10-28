@@ -8,6 +8,13 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
+      <EntityTypeMapping TypeName="Model1.Genero">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="Model1.Store.ProcAltaGenero">
+            <ScalarProperty Name="Nombre" ParameterName="Nombre" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Editoriales">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Editorial)">
@@ -55,5 +62,6 @@
         <ScalarProperty Name="Id" ColumnName="Autores_Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="ProcAltaGenero" FunctionName="Model1.Store.ProcAltaGenero" />
   </EntityContainerMapping>
 </Mapping>

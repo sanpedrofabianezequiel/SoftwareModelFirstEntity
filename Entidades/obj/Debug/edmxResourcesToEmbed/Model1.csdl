@@ -22,13 +22,16 @@
       <End Role="Pais" EntitySet="Paises" />
       <End Role="Autor" EntitySet="Autores" />
     </AssociationSet>
+    <FunctionImport Name="ProcAltaGenero">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Genero">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Libros" Relationship="Model1.GeneroLibro" FromRole="Genero" ToRole="Libro" />
   </EntityType>
   <EntityType Name="Editorial">
@@ -36,7 +39,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Libros" Relationship="Model1.LibroEditorial" FromRole="Editorial" ToRole="Libro" />
   </EntityType>
   <EntityType Name="Pais">
@@ -44,7 +47,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Autores" Relationship="Model1.PaisAutor" FromRole="Pais" ToRole="Autor" />
   </EntityType>
   <EntityType Name="Autor">
@@ -55,17 +58,17 @@
     <NavigationProperty Name="Libros" Relationship="Model1.LibroAutor" FromRole="Autor" ToRole="Libro" />
     <NavigationProperty Name="Pais" Relationship="Model1.PaisAutor" FromRole="Autor" ToRole="Pais" />
     <Property Name="PaisId" Type="Int32" Nullable="false" />
-    <Property Name="Apellido" Type="String" Nullable="false" />
-    <Property Name="Nombre" Type="String" Nullable="false" />
-    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" />
+    <Property Name="Apellido" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Libro">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Titulo" Type="String" Nullable="false" />
-    <Property Name="Edicion" Type="DateTime" Nullable="false" />
+    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Edicion" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Genero" Relationship="Model1.GeneroLibro" FromRole="Libro" ToRole="Genero" />
     <Property Name="GeneroId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Editorial" Relationship="Model1.LibroEditorial" FromRole="Libro" ToRole="Editorial" />
