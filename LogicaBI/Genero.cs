@@ -9,7 +9,7 @@ namespace LogicaBI
     public class Genero
     {
         
-        public static void Agregar(Entidades.Genero genero)
+        public  void Agregar(Entidades.Genero genero)
         {
             try
             {

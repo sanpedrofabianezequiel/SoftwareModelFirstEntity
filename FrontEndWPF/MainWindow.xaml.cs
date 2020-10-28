@@ -41,7 +41,7 @@ namespace FrontEndWPF
 
         }
         //Botones
-        private void btnNuevo_Click(object sender, RoutedEventArgs e) 
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
             Entidades.Genero nuevoGenero = new Entidades.Genero();
             nuevoGenero.Nombre = this.txtNombre.Text;
@@ -49,8 +49,8 @@ namespace FrontEndWPF
             MessageBox.Show("Genero Agregado");
             dgGeneros.DataContext = null;//Lo nuliamos y lo volvemos a llamar
             CargaGrilla();
-            
-        
+
+
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -62,10 +62,23 @@ namespace FrontEndWPF
             MessageBox.Show("Genero Modificado");
             dgGeneros.DataContext = null;//Lo nuliamos y lo volvemos a llamar
             CargaGrilla();
-
-
         }
 
 
+        //Selection Changed, el que cambia el Gird
+        private void dgGeneros_SelectionChanged(object sender,SelectionChangedEventArgs e) 
+        {
+            DataGrid dataGrid = sender as DataGrid;//Castiamos el objeto recibido
+            DataGridRow row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(dataGrid.SelectedIndex);
+            DataGridCell RowColumn = dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
+            txtID.Text = ((TextBlock)RowColumn.Content).Text;
+            //Para la siguiente columna
+            DataGridCell RowColumn1 = dataGrid.Columns[1].GetCellContent(row).Parent as DataGridCell;
+            txtNombre.Text = ((TextBlock)RowColumn1.Content).Text;
+        }
+        private void BtnCerrar_Click(object sender,RoutedEventArgs e) 
+        {
+            this.Close();
+        }
     }
 }
